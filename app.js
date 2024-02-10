@@ -18,13 +18,13 @@ app.use(express.urlencoded({extended: true}))
 app.set("view engine", "ejs")
 
 // test route
-app.get('/signuptest', (req, res) => {
+// app.get('/signuptest', (req, res) => {
+//     res.render('signuptest')
+// })
+
+app.get('/', (req, res) => {
     res.render('signuptest')
 })
-
-// import all the routes here
-const home = require('./routes/homeRoute')
-const user = require('./routes/userRoute')
 
 // router middleware
 app.use('/reSide', userRouter)

@@ -1,6 +1,9 @@
 const User = require('../models/user')
+const registerValidator = require('../validator/userValidator')
 class  UserController {
      static async register (req, res) {
+        const {error} = registerValidator.validate(req.body);
+        if(error) return res.status(400).send({err: error.message})
         try {
             const {name, email} = req.body;
     
@@ -15,6 +18,8 @@ class  UserController {
         }
     }
 
+
+    //For Login
     static login(req,res){
         const{email, password}=req.body;
     }
