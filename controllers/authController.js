@@ -36,6 +36,12 @@ exports.getRegister = (req, res) => {
 
 exports.postRegister = [
     check('email').isEmail().withMessage('Please enter a valid email address'),
+    check('confirmPassword').custom((value, { req }) => {
+        if (value !== req.body.password) {
+            throw new Error('Passwords do not match');
+        }
+        return true;
+    }),
     // Add more validation rules for other fields as needed
 
     async (req, res) => {
