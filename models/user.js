@@ -1,18 +1,21 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
-  name:{
-        type: String,
-        required: [true, 'please provide a name'],
-        maxLength: [40, 'name should be under 40 characters'],
-    },
-    email:{
-        type: String,
-        required: [true, 'please provide a email'],
-        validate: [validator.isEmail, 'please enter email in correct format'],
-        unique: true,
-    }
-})
+    fullName: String,
+    email: { type: String, unique: true },
+    phoneNumber: String,
+    address: String,
+    city: String,
+    state: String,
+    zipCode: String,
+    country: String,
+    profilePicture: String,
+    occupation: String,
+    referralSource: String,
+    newsletterSubscription: { type: Boolean, default: false },
+    password: String
+});
 
-module.exports = mongoose.model('User', userSchema)
+const User = mongoose.model('user', userSchema);
+
+module.exports = User;

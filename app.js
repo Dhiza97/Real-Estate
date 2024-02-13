@@ -1,46 +1,40 @@
-const express = require('express')
-const app = express()
-const connectdb = require('./config/connectdb')
-const mongoose = require('mongoose')
-const userRouter = require('./routes/userRoute').router
+require('dotenv').config(); // Load environment variables from .env file
 
-var morgan = require('morgan')
-// morgan middleware
-app.use(morgan('tiny'))
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const session = require('express-session');
+const flash = require('connect-flash');
+const authRoutes = require('./routes/auth');
 
-require('dotenv').config()
+const app = express();
 
-// regular middlewares
-app.use(express.json());
-app.use(express.urlencoded({extended: true}))
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// temp check (setting up ejs as a render engine)
-app.set("view engine", "ejs")
+// Connect to your MongoDB database using environment variable
+mongoose.connect(process.env.DB_CONNECTION_STRING)
+    .then(() => console.log('E don connect to MongoDB'))
+    .catch(err => console.error('Could not connect to MongoDB', err));
 
-// test route
-// app.get('/signuptest', (req, res) => {
-//     res.render('signuptest')
-// })
+// Middleware setup
+app.use(session({
+    secret: 'jujubean',
+    resave: false,
+    saveUninitialized: true
+}));
+app.use(flash());
 
-app.get('/', (req, res) => {
-    res.render('signuptest')
-})
+// Use routes
+app.use('/auth', authRoutes);
 
-// router middleware
-app.use('/reSide', userRouter)
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something went wrong!');
+});
 
-    // establishing connection to the database using mongoose.connect
-    mongoose.connect(process.env.MONGO_URL) 
-    .then(console.log("DB connection succesfull..")) 
-    .catch(error=> {
-        console.log("DB connection failed");
-        console.log(error);
-        process.exit(1)
-    })
-
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running at port: ${process.env.PORT}`)
-})
-
-//export app.js
-module.exports = app;
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
