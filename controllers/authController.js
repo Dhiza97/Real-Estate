@@ -2,8 +2,12 @@ const bcrypt = require('bcrypt');
 const { check, validationResult } = require('express-validator');
 const User = require('../models/user');
 
+exports.getHome = (req, res) => {
+    res.render('home'); 
+};
+
 exports.getLogin = (req, res) => {
-    res.render('login');
+    res.render('login', { error: req.flash('error') });
 };
 
 exports.postLogin = async (req, res) => {
@@ -13,20 +17,20 @@ exports.postLogin = async (req, res) => {
         // Find the user by email
         const user = await User.findOne({ email });
 
-        // If user not found or password does not match, redirect back to login page
+        // If user not found, or if the password is incorrect, render login page with error message
         if (!user || !(await bcrypt.compare(password, user.password))) {
             req.flash('error', 'Invalid email or password');
-            return res.redirect('/login');
+            return res.render('login', { error: req.flash('error') });
         }
 
-        // If login successful, set session and redirect to dashboard or profile page
+        // If login successful, set session and redirect to home page
         req.session.userId = user._id;
         req.flash('success', 'Login successful');
-        res.redirect('/dashboard'); // Change this to appropriate route
+        res.redirect('/auth/'); // Redirect to the home page
     } catch (error) {
         console.error(error);
         req.flash('error', 'Something went wrong');
-        res.redirect('/login');
+        res.redirect('/auth/login');
     }
 };
 
