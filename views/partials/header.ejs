@@ -1,38 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Re-side</title>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>Rezilla - Real Estate - Homepage - Web</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="topbar">
-            <div>
-                <p>Rezilla, 18 Grattan St, Brooklyn</p>
-            </div>
-            <div>
-                <p>+1 206-214-2298</p>
-                <p>support@rezilla.com</p>
-            </div>
-
-            <div class="navbar">
-                <div class="links">
-                    <a href="">Home</a>
-                    <a href="">About</a>
-                    <a href="">Listings</a>
-                    <a href="">Service</a>
-                    <a href="">Blogs</a>
-                </div>
-
-                <div class="logo">
-                    <h1>Re-Side</h1>
-                </div>
-
-                <div class="account">
-                    <a href="">Login/Register</a>
-                    <a href="" class="button">Add Lisiting</a>
-                </div>
-            </div>
-            
+ <div class="main-container">
+    <nav>
+        <div class="links">
+            <a href="">Home</a>
+            <a href="">About</a>
+            <a href="">Listings</a>
+            <a href="">Services</a>
+            <a href="">Blogs</a>
         </div>
+
+        <div class="logo">
+            <img src="/assets/logo.png" alt="Re-Side Logo"/>
+        </div>
+
+        <div class="account">
+            <div class="login">
+                <button>
+                    <img src="/assets/icon-user-circle-alt.png" alt="">
+                    <span class="text"> Login/Register</span>
+                </button>
+            </div>
+            <div class="add-btn">
+                <button class="add-list">
+                    <img src="/assets/reshot-icon-house-xj53qbrvtc-1.png" alt="">
+                    <span class="text">Add Listing</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="display-1">
+        <div class="show">
+            <p class="head-1">REAL ESTATE</p>
+            <h1>Find a perfect home you love..!</h1>
+            <h4>
+                Explore our curated collection of premier properties, from urban retreats to serene countryside estates. Begin your journey to homeownership with us. Your dream home awaits!
+            </h4>
+            <img src="/assets/group-3.png" alt="" class="icon-right">
+            <img src="/assets/group-4.png" alt="" class="icon-left">
+            <img src="/assets/luxury-classic-modern-bedroom-suite-hotel-1.png" alt="" class="display-img">
+            <img src="/assets/ellipse-9.png" alt="" class="ellipse-9">
+        </div>
+
+        <div class="search">
+            <div class="form-container">
+                <div class="head-2">
+                    <a href="">For sale</a>
+                    <a href="">For rent</a>
+                </div>
+                <form action="">
+                    <input type="search" name="" id="" placeholder="Ikoyi, Lagos, etc">
+                    <select name="type" id="" class="type">
+                        <option value="">Select Property Type</option>
+                        <option value="">For Sale</option>
+                        <option value="">For Rent</option>
+                    </select>
+                    <select name="rooms" id="" class="rooms">
+                        <option value="">Select Rooms</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4 & More</option>
+                    </select>
+                    <button type="submit">
+                        <img src="/assets/icon-search-normal-1.png" alt="">
+                        <span>Search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+ </div>

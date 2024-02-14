@@ -12,6 +12,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serve static files from the "public" directory
+app.use(express.static('public'));
+
 // Connect to your MongoDB database using environment variable
 mongoose.connect(process.env.DB_CONNECTION_STRING)
     .then(() => console.log('E don connect to MongoDB'))
