@@ -217,30 +217,32 @@ nav .logo img {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: url('/assets/polygon-1.png') no-repeat; 
+    background: url('/assets/polygon-1.png') no-repeat right center; 
     background-size: 20px;
     padding: 10px 30px 10px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    font-size: 1.1rem;
+    background-color: #f5f5f5;
+    border: none;
+    outline: none;
     cursor: pointer;
 }
 
 .search .form-container .rooms {
-    appearance: none; /* Hide default appearance */
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: url('/assets/polygon-1-8hZ.png') no-repeat;
+    background: url('/assets/polygon-1-8hZ.png') no-repeat right center;
     background-size: 20px;
     padding: 10px 30px 10px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    font-size: 1.1rem;
+    background-color: #f5f5f5;
+    border: none;
+    outline: none;
     cursor: pointer;
 }
 
-.custom-select::-ms-expand {
-    display: none; /* Hide default arrow icon for IE */
+.search .form-container form select:invalid, select option[value=''] {
+    color: #757575;
 }
 
 .search .form-container button {
@@ -261,4 +263,145 @@ nav .logo img {
   width: 20px;
   height: 20px;
   margin-right: 8px;
+}
+
+/* Customers count */
+.customers {
+    display: flex;
+    align-items: center;
+}
+
+.customers-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    background: white;
+    border-radius: 50px;
+    position: absolute;
+    top: 90%;
+    left: 21%;
+    width: 400px;
+    height: 100px;
+}
+
+.customers .customers-images img {
+    display: flex;
+    width: 50px;
+    height: 50px;
+}
+
+.customers .customers-images .cs-1 {
+    position: absolute;
+    left: 5%;
+    border-radius: 50%;
+}
+
+.customers .customers-images .cs-2 {
+    position: absolute;
+    left: 12%;
+    border-radius: 50%;
+}
+
+.customers .customers-images .cs-3 {
+    position: absolute;
+    left: 19%;
+    border-radius: 50%;
+}
+
+.customers .customers-images .cs-4 {
+    position: absolute;
+    left: 26%;
+    border-radius: 50%;
+}
+
+.customers .customers-images .cs-5 {
+    position: absolute;
+    left: 33%;
+    border-radius: 50%;
+}
+
+.customers-images .last-img {
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom:50%;
+    left: 45%;
+}
+
+.customers-images .last-img .cs-6 {
+    position: absolute;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0.8;
+    background: black;
+}
+
+.customers-images .last-img p {
+    position: absolute;
+    color: white;
+}
+
+.customers-images .happy {
+    font-size: 1.3rem;
+    margin-left: 170px;
+}
+
+.listings-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: white;
+    border-radius: 50px;
+    position: absolute;
+    top: 90%;
+    left: 53%;
+    width: 400px;
+    height: 100px;
+}
+
+.listings-count img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.listings-count p {
+    font-size: 1.3rem;
+}
+
+/* Trustees */
+.trustees {
+    position: absolute;
+    top: 120%;
+    left: 8.1%;
+}
+
+.trustees .head-3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #808080;
+}
+
+.trustees-ball {
+    width: 150px;
+    position: absolute;
+    left: 4%;
+    top: -65%;
+}
+
+.trustees .trustees-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+}
+
+.trustees .trustees-logo img {
+    width: 130px;
 }
