@@ -674,3 +674,8 @@ nav .logo img {
 .house-listings .list .bath img {
     width: 20px;
 }
+
+.house-listings .list .beds-bath a {
+    margin-left: 28px;
+    color: #3a0ba3;
+}
