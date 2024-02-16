@@ -422,7 +422,6 @@ nav .logo img {
     line-height: 1.5;
     letter-spacing: 0.291rem;
     color: #4361ee;
-    font-family: Poppins, 'Source Sans Pro';
     white-space: nowrap;
 }
 
@@ -484,7 +483,6 @@ nav .logo img {
 }
 
 .info-images {
-    /* position: relative; */
     display: flex;
 }
 
@@ -538,5 +536,141 @@ nav .logo img {
     right: -80%;
     top: 72%;
     width: 90px;
+}
 
+/* Latest Properties */
+.latest {
+    position: absolute;
+    top: 270%;
+    left: 8.1%;
+    padding-bottom: 50px;
+}
+
+.latest .headings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 300px;
+}
+
+.latest .headings .lastest-write h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.291rem;
+    color: #4361ee;
+    white-space: nowrap;
+}
+
+.latest .headings .lastest-write h2 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    max-width: 36rem;
+    font-size: 2.58rem;
+    font-weight: 600;
+    line-height: 1.1809045453;
+    color: #2b2b2b;
+}
+
+.latest .headings .lastest-write p {
+    margin-bottom: 2.5rem;
+    max-width: 32.1rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.625;
+    color: #808080;
+}
+
+.latest .headings .btns button {
+    margin-right: 2rem;
+    margin-bottom: 84px;
+    box-sizing: border-box;
+    padding: .7rem 1.7rem .7rem 1.7rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #3a0ca3;
+    font-family: Poppins, 'Source Sans Pro';
+    white-space: nowrap;
+    border: solid 0.1rem #3a0ca3;
+    background-color: #ffffff;
+    border-radius: 3rem;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.latest .headings .btns button:hover {
+    background-color: #3a0ca3;
+    color: white;
+}
+
+.house-listings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.house-listings .list .main-img {
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+    width: 300px;
+    height: 300px;
+    background-color: #d9d9d9;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) -0%, rgba(0, 0, 0, 0.5) 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 3rem;
+}
+
+.house-listings .list-1 .main-img {
+    background-image: url(../assets/rectangle-18-bg.png);
+}
+.house-listings .list-2 .main-img {
+    background-image: url(../assets/rectangle-19-bg.png);
+}
+.house-listings .list-3 .main-img {
+    background-image: url(../assets/rectangle-20-bg.png);
+}
+.house-listings .list-4 .main-img {
+    background-image: url(../assets/rectangle-21-bg-JHH.png);
+}
+
+.house-listings .list .price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2b2b2b;
+    margin-bottom: 5px;
+}
+
+.house-listings .list .name {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #2b2b2b;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-bottom: 5px;
+}
+
+.house-listings .list .address {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #808080;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-bottom: 5px;
+}
+
+.house-listings .list .beds-bath {
+
+}
+
+.house-listings .list .beds img {
+    width: 20px;
+}
+.house-listings .list .bath img {
+    width: 20px;
 }
