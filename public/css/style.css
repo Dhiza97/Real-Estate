@@ -788,7 +788,7 @@ nav .logo img {
 }
 
 .locations .second-ball {
-    width: 120px;
+    width: 140px;
     margin-top: 45px;
     margin-left: 84%;
 }
@@ -906,3 +906,78 @@ nav .logo img {
     font-weight: 500;
     line-height: 1.5;
 }
+
+/* Team Members */
+.team {
+    position: absolute;
+    top: 610%;
+    left: 8.1%;
+    padding-bottom: 130px;
+}
+
+.team .team-headers {
+    text-align: center;
+}
+
+.team .team-headers p {
+    margin-top: 100px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.291rem;
+    color: #4361ee;
+    white-space: nowrap;
+}
+
+.team .team-headers h2 {
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-size: 2.58rem;
+    font-weight: 600;
+    line-height: 1.1809045453;
+    color: #2b2b2b;
+}
+
+.team .team-members {
+    display: flex;
+    align-items: center;
+    gap: 129.7px;
+    text-align: center;
+}
+
+.team .team-members .member {
+    margin-top: 70px;
+}
+
+.team .team-members .member .name {
+    font-size: 1.7rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #0b090a;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.team .team-members .member .position {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #4361ee;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.team .team-members .member img {
+    margin-bottom: 1rem;
+    height: 300px;
+    width: 200px;
+    background-color: #d9d9d9;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.400000006) -0%, rgba(0, 0, 0, 0.400000006) 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12rem 4rem 4rem 4rem;
+    flex-shrink: 0;
+}
+
+/* Blog Post */
