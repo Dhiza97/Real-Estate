@@ -981,3 +981,289 @@ nav .logo img {
 }
 
 /* Blog Post */
+.blog {
+    position: absolute;
+    top: 708%;
+    padding: 8.1% 140px;
+    background: #3a0ca3;
+    color: #ffffff;
+}
+
+.blog .blog-headers {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.blog .blog-headers p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.291rem;
+    white-space: nowrap;
+}
+
+.blog .blog-headers h2 {
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-size: 2.58rem;
+    font-weight: 600;
+    line-height: 1.1809045453;
+}
+
+.blog .blog-posts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 55px;
+}
+
+.blog .blog-posts .blog-post .date-tag {
+    background-color: #ffffff;
+    width: 3.4rem;
+    height: 3.5rem;
+    position: relative;
+    box-shadow: 0.4rem 0.4rem 1.5rem rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 1rem 1rem;
+    text-align: center;
+    padding: 2px 0;
+
+}
+
+.blog .blog-posts .blog-post .date-tag p {
+    color: #2b2b2b;
+    font-size: 1.4rem;
+}
+
+.blog .blog-posts .blog-post .date-tag .day {
+    color: #808080;
+    font-size: 1.1rem;
+}
+
+.blog .blog-posts .blog-img {
+    box-sizing: border-box;
+    padding: 0 3rem;
+    width: 350px;
+    height: 250px;
+    box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.200000003);
+    background-color: #ffffff;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 3rem;
+    flex-shrink: 0;
+}
+
+.blog .blog-posts .post-1 .blog-img {
+    background-image: url(../assets/rectangle-35-bg.png);
+}
+.blog .blog-posts .post-2 .blog-img {
+    background-image: url(../assets/rectangle-36-bg.png);
+}
+.blog .blog-posts .post-3 .blog-img {
+    background-image: url(../assets/rectangle-37-bg.png);
+}
+
+.blog .blog-posts .blog-post .post-info .title {
+    width: 18.9rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 35px;
+}
+
+.blog .blog-posts .blog-post .post-info .content {
+    width: 17.1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625;
+}
+
+.blog .blog-posts .blog-post button {
+    width: 50px;
+    float: inline-end;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.blog .blog-posts .blog-post .blog-more-btn {
+    width: 50px;
+    float: inline-end;
+}
+
+
+/* Testimonials */
+.testimonials {
+    position: absolute;
+    top: 845%;
+    left: 8.1%;
+    display: flex;
+    gap: 353px;
+    padding-bottom: 240px;
+    background-color: transparent;
+}
+
+.testimonials .testimonials-headers p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.291rem;
+    color: #4361ee;
+    white-space: nowrap;
+}
+
+.testimonials .testimonials-headers h2 {
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.1809045453;
+    max-width: 350px;
+}
+
+.testimonials .testimonials-headers h5 {
+    margin-bottom: 30px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 330px;
+}
+
+.testimonials .testimonials-headers .testimonials-controls {
+    display: flex;
+    gap: 40px;
+}
+
+.testimonials .testimonials-headers .testimonials-controls button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.testimonials .testimonials-headers .testimonials-controls img {
+    width: 50px;
+}
+
+.testimonials .testimonies {
+    box-sizing: border-box;
+    padding: 30px 50px;
+    width: 500px;
+    box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.1000000015);
+    background-color: white;
+    border-radius: 3rem;;
+}
+
+.testimonials .ball {
+    position: absolute;
+    left: 55%;
+    top: -8%;
+    width: 100px;
+    z-index: -1;
+}
+
+.testimonials .testimonies .testimony p {
+    font-size: 1.29rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #2b2b2b;
+    flex-shrink: 0;
+    margin-bottom: 20px;
+}
+
+.testimonials .testimonies .testimony .quote {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.testimonials .testimonies .testifier {
+    display: flex;
+    align-items: center;
+    padding: 15px 0 0;
+}
+
+.testimonials .testimonies .testifier .profile-picture {
+    margin-right: 1.5rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: #d9d9d9;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../assets/ellipse-15-bg.png);
+    border-radius: 2.5rem;
+    flex-shrink: 0;
+}
+.testimonials .testimonies .testifier .name {
+    font-size: 1.30rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #2b2b2b;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.testimonials .testimonies .testifier .rating {
+    display: flex;
+    align-items: center;
+    margin-left: 65px;
+}
+
+.testimonials .testimonies .testifier .rating img {
+    width: 15px;
+    margin-left: 2px;
+}
+
+
+/* Agent */
+.agent {
+    position: absolute;
+    top: 925%;
+    left: 8.1%;
+}
+
+.agent .agent-container {
+    position: relative;
+    width: 116%;
+    height: 17rem;
+    background-color: #3a0ca3;
+    border-radius: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.agent .agent-container .agent-picture {
+    position: relative;
+    bottom: 15.7%;
+    left: -10%;
+    width: 35.8rem;
+    height: 25.3rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url(../assets/unsplash-7uommzpd2ja.png);
+}
+
+.agent .agent-container .ball-1 {
+    position: absolute;
+    left: 20%;
+    width: 50px;
+}
+
+.agent .agent-container .agent-writeup {
+    color: #ffffff;
+}
+
+.agent .agent-container .agent-writeup h2 {
+    margin-bottom: 1rem;
+    font-size: 2.58rem;
+    font-weight: 600;
+    line-height: 1.1809045453;
+    white-space: nowrap;
+}
+
+.agent .agent-container .agent-writeup p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.625;
+    max-width: 320px;
+}
