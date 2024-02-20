@@ -1345,8 +1345,8 @@ footer .foot .subscribe .bottom-input input {
 
 footer .foot .subscribe .bottom-input a {
     position: absolute;
-    right: 9.5%;
-    top: 38.6%;
+    right: 9.6%;
+    top: 36.5%;
 }
 
 footer .foot .subscribe img {
@@ -1394,4 +1394,24 @@ footer .foot .bottom-links .socials-icon .fb {
 footer .copyright {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    background-color: #0b090a;
+    height: 50px;
+    color: #aaaaaa;
+    gap: 250px;
+    width: 109.5%;
+    margin-left: -14px;
+}
+
+footer .copyright .terms a {
+    color: #aaaaaa;
+}
+
+footer .copyright .terms a:hover {
+    color: white;
+}
+
+footer .copyright .terms {
+    display: flex;
+    gap: 60px;
 }
