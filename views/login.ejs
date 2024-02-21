@@ -3,14 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Re-Side Login</title>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
+    <div class="center">
+        <img src="/assets/logo.png" alt="">
     <h1>Login</h1>
     <form action="/auth/login" method="POST">
-        <input type="email" name="email" placeholder="Email Address" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-
+        <div class="txt_field">
+            <input type="email" name="email" required>
+            <span></span>
+            <label for="">Email</label>
+        </div>
+        <div class="txt_field">
+            <input type="password" name="password" required>
+            <span></span>
+            <label for="">Password</label>
+        </div>
+        
         <% if (error && error.length > 0) { %>
             <div class="error">
                 <%= error[0] %>
@@ -18,6 +29,11 @@
         <% } %>
 
         <button type="submit">Login</button>
+
+        <div class="signup_link">
+            Don't have an account? <a href="/auth/register">Sign Up</a>
+        </div>
     </form>
+    </div>
 </body>
 </html>
