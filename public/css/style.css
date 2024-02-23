@@ -1298,7 +1298,7 @@ footer {
 footer .foot {
     display: flex;
     padding: 7% 7% 7% 8.1%;
-    gap: 144px;
+    gap: 145px;
 }
 
 footer .foot .reside-info div {
@@ -1398,8 +1398,8 @@ footer .copyright {
     background-color: #0b090a;
     height: 50px;
     color: #aaaaaa;
-    gap: 250px;
-    width: 109.5%;
+    gap: 230px;
+    width: 108.7%;
     margin-left: -14px;
 }
 
@@ -1414,4 +1414,6 @@ footer .copyright .terms a:hover {
 footer .copyright .terms {
     display: flex;
     gap: 60px;
+    margin-left: -20px;
+    color: #3a0ba3;
 }

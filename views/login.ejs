@@ -8,32 +8,36 @@
 </head>
 <body>
     <div class="center">
-        <img src="/assets/logo.png" alt="">
-    <h1>Login</h1>
-    <form action="/auth/login" method="POST">
-        <div class="txt_field">
-            <input type="email" name="email" required>
-            <span></span>
-            <label for="">Email</label>
-        </div>
-        <div class="txt_field">
-            <input type="password" name="password" required>
-            <span></span>
-            <label for="">Password</label>
-        </div>
         
-        <% if (error && error.length > 0) { %>
-            <div class="error">
-                <%= error[0] %>
-            </div>
-        <% } %>
-
-        <button type="submit">Login</button>
-
-        <div class="signup_link">
-            Don't have an account? <a href="/auth/register">Sign Up</a>
+        <div class="logo">
+            <img src="/assets/logo.png" alt="">
         </div>
-    </form>
+        <h1>Login</h1>
+
+        <form action="/auth/login" method="POST">
+            <div class="txt_field">
+                <input type="email" name="email" required>
+                <span></span>
+                <label for="">Email</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" required>
+                <span></span>
+                <label for="">Password</label>
+            </div>
+
+            <% if (error && error.length > 0) { %>
+                <div class="error">
+                    <%= error[0] %>
+                </div>
+            <% } %>
+
+            <button type="submit">Login</button>
+
+            <div class="signup_link">
+                Don't have an account? <a href="/auth/register">Sign Up</a>
+            </div>
+        </form>
     </div>
 </body>
 </html>
