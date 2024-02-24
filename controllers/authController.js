@@ -3,7 +3,11 @@ const { check, validationResult } = require('express-validator');
 const User = require('../models/user');
 
 exports.getHome = (req, res) => {
-    res.render('home'); 
+    // Get the full name of the user from the session or wherever it's stored
+    const fullName = req.session.fullName; // Adjust this according to your application's logic
+
+    // Render the home page view and pass the fullName variable to it
+    res.render('home', { fullName });
 };
 
 exports.getLogin = (req, res) => {
@@ -26,7 +30,7 @@ exports.postLogin = async (req, res) => {
         // If login successful, set session and redirect to home page
         req.session.userId = user._id;
         req.session.isAuthenticated = true;
-        req.session.username = user.fullName;
+        req.session.fullName = user.fullName; // Set the fullName in session
         req.flash('success', 'Login successful');
         res.redirect('/auth/'); // Redirect to the home page
     } catch (error) {
@@ -35,6 +39,7 @@ exports.postLogin = async (req, res) => {
         res.redirect('/auth/login');
     }
 };
+
 
 exports.logout = (req, res) => {
     // Clear authentication status and username from session

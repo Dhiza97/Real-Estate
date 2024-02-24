@@ -54,15 +54,19 @@ nav .logo img {
     width: 17px;
 }
 
-.account .login button{
+.account .login button {
     background-color: transparent;
     cursor: pointer;
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     display: flex;
     align-items: center;
+}
+
+.account .login button a {
+    color: #0b090a;
 }
 
 .account .add-list {
