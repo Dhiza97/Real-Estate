@@ -25,6 +25,8 @@ exports.postLogin = async (req, res) => {
 
         // If login successful, set session and redirect to home page
         req.session.userId = user._id;
+        req.session.isAuthenticated = true;
+        req.session.username = user.fullName;
         req.flash('success', 'Login successful');
         res.redirect('/auth/'); // Redirect to the home page
     } catch (error) {
@@ -32,6 +34,14 @@ exports.postLogin = async (req, res) => {
         req.flash('error', 'Something went wrong');
         res.redirect('/auth/login');
     }
+};
+
+exports.logout = (req, res) => {
+    // Clear authentication status and username from session
+    req.session.isAuthenticated = false;
+    req.session.username = null;
+    // Redirect to home page or login page
+    res.redirect('/');
 };
 
 exports.getRegister = (req, res) => {

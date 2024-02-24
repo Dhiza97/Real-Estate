@@ -13,4 +13,12 @@ router.post('/login', authController.postLogin);
 router.get('/register', authController.getRegister);
 router.post('/register', authController.postRegister);
 
+exports.getHomePage = (req, res) => {
+    // Check if the user is authenticated
+    const isAuthenticated = req.session.isAuthenticated || false;
+
+    // Pass the isAuthenticated variable to the template
+    res.render('home', { isAuthenticated });
+};
+
 module.exports = router;

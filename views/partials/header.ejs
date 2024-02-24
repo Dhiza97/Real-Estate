@@ -28,10 +28,14 @@
 
         <div class="account">
             <div class="login">
-                <button>
-                    <img src="/assets/icon-user-circle-alt.png" alt="">
-                    <span class="text"> Login/Register</span>
-                </button>
+                <% if (isAuthenticated) { %>
+                    <a href="/profile"><%= fullName %></a> <!-- Link to user profile or dashboard -->
+                <% } else { %>
+                    <button>
+                        <img src="/assets/icon-user-circle-alt.png" alt="">
+                        <span class="text"> Login/Register</span>
+                    </button>
+                <% } %>
             </div>
             <div class="add-btn">
                 <button class="add-list">
