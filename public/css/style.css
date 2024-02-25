@@ -7,7 +7,8 @@ html {
 
 * {
   margin: 0;
-  padding: 0; 
+  padding: 0;
+  box-sizing: border-box;
 }
 
 ul, li {
@@ -136,23 +137,32 @@ nav .logo img {
     margin-bottom: 5px;
 }
 
-.display-1 .show .display-img {
+/* Slide Show */
+/* Slideshow container */
+.display-1 .show .slideshow-container {
     width: 550px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper {
+    width: 550px;
+    height: 370px;
     border-radius: 20px;
 }
 
-.display-1 .show .icon-left {
-    position: absolute;
-    right: -5%;
-    top: 65%;
-    width: 50px;
+.swiper-slide img {
+    width: 100%;
 }
 
-.display-1 .show .icon-right {
-    position: absolute;
-    left: -5%;
-    top: 65%;
-    width: 50px;
+.swiper .swiper-button-next, .swiper .swiper-button-prev {
+    color: #ffffff;
+}
+
+.swiper .swiper-pagination-bullet-active {
+    background: #ffffff;
 }
 
 .display-1 .show .ellipse-9 {
