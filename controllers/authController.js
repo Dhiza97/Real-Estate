@@ -43,10 +43,14 @@ exports.postLogin = async (req, res) => {
 
 exports.logout = (req, res) => {
     // Clear authentication status and username from session
-    req.session.isAuthenticated = false;
-    req.session.username = null;
-    // Redirect to home page or login page
-    res.redirect('/');
+    req.session.destroy(err => {
+        if (err) {
+            console.error('Error logging out:', err);
+            res.redirect('/'); // Redirect to home page if logout fails
+        } else {
+            res.redirect('/auth/login'); // Redirect to login page after successful logout
+        }
+    });
 };
 
 exports.getRegister = (req, res) => {
