@@ -12,6 +12,15 @@ router.get('/', (req, res) => {
     res.render('home', { isAuthenticated, fullName });
 });
 
+// About Us page route
+router.get('/about', (req, res) => {
+    // Check if the user is authenticated and retrieve fullName from the session
+    const isAuthenticated = req.session.isAuthenticated || false;
+    const fullName = req.session.fullName || ''; // Adjust this according to your application's logic
+
+    res.render('about', { isAuthenticated, fullName }); // Pass isAuthenticated and fullName variables
+});
+
 // Login routes
 router.get('/login', authController.getLogin);
 router.post('/login', authController.postLogin);

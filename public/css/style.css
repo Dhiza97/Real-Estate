@@ -89,7 +89,8 @@ nav .logo img {
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: #aab9fb;
+    color: #3a0ca3;
 }
 
 /* Show the dropdown menu on hover */
@@ -1461,4 +1462,56 @@ footer .copyright .terms {
     gap: 60px;
     margin-left: -20px;
     color: #3a0ba3;
+}
+
+/* About Us */
+.container {
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* About Us page styles */
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    background-image: url('/assets/about.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 500px;
+}
+
+.about-us {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.overview,
+.mission {
+    margin-bottom: 40px;
+}
+
+.overview h2,
+.mission h2 {
+    color: #007bff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.overview p,
+.mission p {
+    line-height: 1.6;
+}
+
+/* Image styles */
+.overview img,
+.mission img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
