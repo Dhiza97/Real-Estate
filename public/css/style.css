@@ -182,7 +182,6 @@ nav .logo img {
 /* Slideshow container */
 .display-1 .show .slideshow-container {
     width: 550px;
-    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -602,9 +601,6 @@ nav .logo img {
 
 /* Latest Properties */
 .latest {
-    /* position: absolute;
-    top: 270%;
-    left: 8.1%; */
     position: relative;
     height: 100vh;
     padding: 0 8.1% 350px;
@@ -744,6 +740,7 @@ nav .logo img {
     height: 100%;
     display: flex;
     overflow: scroll;
+    padding-bottom: 30px;
 }
 
 .house-listings .swiper-wrapper-2 {
@@ -761,8 +758,7 @@ nav .logo img {
 
 /* Our Services */
 .services {
-    position: absolute;
-    top: 370%;
+    position: relative;
     background: rgba(212, 212, 212, 0.3000000119);
     padding-bottom: 100px;
 }
@@ -799,7 +795,7 @@ nav .logo img {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 64px;
+    gap: 45px;
     padding: 0 100px;
 }
 
@@ -842,7 +838,7 @@ nav .logo img {
 }
 
 .services .service-body .sbody .content {
-    max-width: 13.5rem;
+    max-width: 15.5rem;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.625;
@@ -857,17 +853,21 @@ nav .logo img {
 
 /* Locations */
 .locations {
-    position: absolute;
-    top: 470%;
-    left: 8.1%;
+    position: relative;
     display: flex;
     flex-direction: column;
     padding-bottom: 50px;
+    background-color: #fff;
+    padding: 100px 8.1% 40px;
 }
 
 .locations .first-ball {
-    width: 60px;
-    margin-left: 50%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.locations .first-ball img {
+    width: 70px;
 }
 
 .locations .second-ball {
@@ -992,10 +992,9 @@ nav .logo img {
 
 /* Team Members */
 .team {
-    position: absolute;
-    top: 610%;
-    left: 8.1%;
-    padding-bottom: 130px;
+    position: relative;
+    padding: 0 8.1% 0;
+    height: 100vh;
 }
 
 .team .team-headers {
@@ -1065,9 +1064,8 @@ nav .logo img {
 
 /* Blog Post */
 .blog {
-    position: absolute;
-    top: 708%;
-    padding: 8.1% 140px;
+    position: relative;
+    padding: 8.1%;
     background: #3a0ca3;
     color: #ffffff;
 }
@@ -1177,13 +1175,12 @@ nav .logo img {
 
 /* Testimonials */
 .testimonials {
-    position: absolute;
-    top: 845%;
-    left: 8.1%;
+    position: relative;
     display: flex;
-    gap: 353px;
-    padding-bottom: 240px;
-    background-color: transparent;
+    /* gap: 33px; */
+    padding: 200px 8.1% 0;
+    background-color: #fff;
+    height: 100vh;
 }
 
 .testimonials .testimonials-headers p {
@@ -1201,7 +1198,7 @@ nav .logo img {
     font-size: 2.5rem;
     font-weight: 600;
     line-height: 1.1809045453;
-    max-width: 350px;
+    max-width: 1000px;
 }
 
 .testimonials .testimonials-headers h5 {
@@ -1212,28 +1209,19 @@ nav .logo img {
     max-width: 330px;
 }
 
-.testimonials .testimonials-headers .testimonials-controls {
-    display: flex;
-    gap: 40px;
+.testimonials .testimonies .testimony-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-gap: 20px;
 }
 
-.testimonials .testimonials-headers .testimonials-controls button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.testimonials .testimonials-headers .testimonials-controls img {
-    width: 50px;
-}
-
-.testimonials .testimonies {
+.testimonials .testimonies .testimony-wrap .box {
     box-sizing: border-box;
     padding: 30px 50px;
-    width: 500px;
+    width: 400px;
     box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.1000000015);
     background-color: white;
-    border-radius: 3rem;;
+    border-radius: 3rem;
 }
 
 .testimonials .ball {
@@ -1245,7 +1233,7 @@ nav .logo img {
 }
 
 .testimonials .testimonies .testimony p {
-    font-size: 1.29rem;
+    font-size: 1.10rem;
     font-weight: 500;
     line-height: 1.5;
     color: #2b2b2b;
@@ -1253,7 +1241,7 @@ nav .logo img {
     margin-bottom: 20px;
 }
 
-.testimonials .testimonies .testimony .quote {
+.testimonials .testimonies .testimony-wrap .quote {
     width: 60px;
     margin-bottom: 10px;
 }
@@ -1277,7 +1265,7 @@ nav .logo img {
     flex-shrink: 0;
 }
 .testimonials .testimonies .testifier .name {
-    font-size: 1.30rem;
+    font-size: 1.20rem;
     font-weight: 500;
     line-height: 1.5;
     color: #2b2b2b;
@@ -1285,17 +1273,16 @@ nav .logo img {
     flex-shrink: 0;
 }
 
-.testimonials .testimonies .testifier .rating {
+.testimonials .testimonies .box .rating {
     display: flex;
     align-items: center;
     margin-left: 65px;
 }
 
-.testimonials .testimonies .testifier .rating img {
+.testimonials .testimonies .box .rating img {
     width: 15px;
-    margin-left: 2px;
+    margin-left: 5px;
 }
-
 
 /* Agent */
 .agent {

@@ -97,14 +97,28 @@
             
             });
 
-            const swiper2 = new Swiper('.mySwiper-2', {
-                slidePreview: 4,
+            // Select all elements with the class "number"
+            const numbers = document.querySelectorAll('.number');
 
-                scrollbar: {
-                    el: ".swiper-scrollbar",
-                    hide: true
-                }
-            })
+            // Loop through each number element
+            numbers.forEach((number, index) => {
+                // Get the current number value
+                let currentValue = parseInt(number.textContent);
+                
+                // Generate a random interval between 500ms and 2000ms
+                const interval = Math.floor(Math.random() * (2000 - 500 + 1)) + 500;
+
+                // Set an interval to increment the number
+                setInterval(() => {
+                    // Increment the number by a random value between 1 and 5
+                    const increment = Math.floor(Math.random() * 5) + 1;
+                    currentValue += increment;
+
+                    // Update the number text content
+                    number.textContent = currentValue;
+                }, interval);
+            });
+
         </script>
     </body>
 </html>
