@@ -1,6 +1,11 @@
 /* font-family: "Poppins", sans-serif;
 font-family: "Source Code Pro", monospace; */
 
+html,
+body {
+    position: relative;
+}
+
 html {
     font-family: Poppins, 'Source Sans Pro';
 }
@@ -9,6 +14,15 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+    max-width: 100%;
+}
+
+.main-container {
+    position: relative;
+    background-color: #ffffff;
 }
 
 ul, li {
@@ -121,16 +135,15 @@ nav .logo img {
 
 /* Display */
 .display-1 {
-    width: 90rem;
-    height: 55.2rem;
-    position: absolute;
-    left: 0;
-    top: 9%;
+    max-width: 100%;
+    height: 100vh;
     background: linear-gradient(180deg, rgba(76, 201, 240, 0.3000000119) -0%, rgba(67, 97, 238, 0.3000000119) 100%);
     border-radius: 0 0 80rem 80rem;
+    position: relative;
+    display: block;
 }
 
-.show {
+.display-1 .show {
     position: absolute;
     top: 7%;
     left: 8.1%;
@@ -202,20 +215,20 @@ nav .logo img {
 }
 
 /* Search Form */
-.search {
+.display-1 .search {
     position: absolute;
     right: 15%;
     top: 12.5%;
 }
 
-.search .form-container {
+.display-1 .search .form-container {
     background: white;
     border-radius: 20px;
     width: 130%;
     box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1)
 }
 
-.search .form-container .head-2 {
+.display-1 .search .form-container .head-2 {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -224,17 +237,17 @@ nav .logo img {
     border-radius: 20px 20px 0 0;
 }
 
-.search .form-container .head-2 a {
+.display-1 .search .form-container .head-2 a {
     color: #808080;
 }
 
-.search .form-container h2 {
+.display-1 .search .form-container h2 {
     text-align: center;
     font-size: 1.5rem;
     padding: 20px;
 }
 
-.search .form-container form {
+.display-1 .search .form-container form {
     box-sizing: border-box;
     padding: 50px 5px 93px;
     align-items: center;
@@ -243,7 +256,7 @@ nav .logo img {
     flex-shrink: 0;
 }
 
-.search .form-container input, select {
+.display-1 .search .form-container input, select {
     font-size: 1.1rem;
     width: 340px;
     height: 60px;
@@ -255,11 +268,11 @@ nav .logo img {
     outline: none;
 }
 
-.search .form-container input:focus {
+.display-1 .search .form-container input:focus {
     border: 1px solid #3a0ca3;
 }
 
-.search .form-container .type {
+.display-1 .search .form-container .type {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -273,7 +286,7 @@ nav .logo img {
     cursor: pointer;
 }
 
-.search .form-container .rooms {
+.display-1 .search .form-container .rooms {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -287,11 +300,11 @@ nav .logo img {
     cursor: pointer;
 }
 
-.search .form-container form select:invalid, select option[value=''] {
+.display-1 .search .form-container form select:invalid, select option[value=''] {
     color: #757575;
 }
 
-.search .form-container button {
+.display-1 .search .form-container button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -305,7 +318,7 @@ nav .logo img {
   cursor: pointer;
 }
 
-.search .form-container button img {
+.display-1 .search .form-container button img {
   width: 20px;
   height: 20px;
   margin-right: 8px;
@@ -325,7 +338,7 @@ nav .logo img {
     background: white;
     border-radius: 50px;
     position: absolute;
-    top: 90%;
+    top: 94%;
     left: 21%;
     width: 400px;
     height: 100px;
@@ -403,7 +416,7 @@ nav .logo img {
     background: white;
     border-radius: 50px;
     position: absolute;
-    top: 90%;
+    top: 94%;
     left: 53%;
     width: 400px;
     height: 100px;
@@ -420,10 +433,14 @@ nav .logo img {
 }
 
 /* Trustees */
-.trustees {
-    position: absolute;
-    top: 120%;
-    left: 8.1%;
+.main-container .trustees {
+    background-color: #ffffff;
+    height: 20vh;
+    max-width: 100%;
+    position: relative;
+    display: block;
+    margin-top: 200px;
+    padding: 0 8.1% 350px;
 }
 
 .trustees .head-3 {
@@ -435,9 +452,9 @@ nav .logo img {
 }
 
 .trustees-ball {
-    width: 150px;
+    width: 140px;
     position: absolute;
-    left: 4%;
+    left: 11%;
     top: -65%;
 }
 
@@ -454,12 +471,12 @@ nav .logo img {
 
 /* What are we */
 .waw {
-    position: absolute;
-    top: 175%;
-    left: 8.1%;
-    padding-bottom: 70px;
     display: flex;
+    gap: 83px;
     align-items: center;
+    position: relative;
+    padding: 0 8.1% 350px;
+    height: 100vh;
 }
 
 .info-write h4 {
@@ -493,21 +510,20 @@ nav .logo img {
 .info-cons {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    
+    gap: 40px;
 }
 
 .info-cons img {
     width: 50px;
 }
 
-.box-1, .box-2 {
+.info-cons .box-1, .info-cons .box-2 {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     height: 100px;
-    max-width: 330px;
-    padding: 10px 30px;
+    max-width: 410px;
+    padding: 40px 30px;
     border-radius: 3rem;
     box-shadow: 0.4rem 1rem 3rem rgba(0, 0, 0, 0.0599999987);
 }
@@ -521,7 +537,7 @@ nav .logo img {
 }
 
 .info-cons .waw-texts {
-    max-width: 22.1rem;
+    max-width: 280px;
     font-size: 1.02rem;
     font-weight: 400;
     line-height: 1.625;
@@ -530,14 +546,13 @@ nav .logo img {
 
 .info-images {
     display: flex;
+    position: relative;
 }
 
 .info-images .rect-big {
+    margin-top: 120px;
     width: 270px;
     height: 525px;
-    position: absolute;
-    left: 105%;
-    top: 10%;
     box-shadow: 0.4rem 1rem 3rem rgba(0, 0, 0, 0.150000006);
     background-color: #d9d9d9;
     background-size: 100% 100%;
@@ -550,9 +565,6 @@ nav .logo img {
 .info-images .square {
     width: 270px;
     height: 270px;
-    position: absolute;
-    right: -101%;
-    top: 4%;
     box-shadow: 0.4rem 1rem 3rem rgba(0, 0, 0, 0.150000006);
     background-color: #d9d9d9;
     background-size: 100% 100%;
@@ -560,14 +572,14 @@ nav .logo img {
     background-position: center;
     background-image: url(../assets/rectangle-15-bg.png);
     border-radius: 3rem;
+    position: absolute;
+    left: 105%;
+    top: 10%;
 }
 
 .info-images .rect-small {
     width: 270px;
     height: 180px;
-    position: absolute;
-    right: -101%;
-    top: 49%;
     box-shadow: 0.4rem 1rem 3rem rgba(0, 0, 0, 0.150000006);
     background-color: #d9d9d9;
     background-size: 100% 100%;
@@ -575,21 +587,27 @@ nav .logo img {
     background-position: center;
     background-image: url(../assets/rectangle-16-bg.png);
     border-radius: 3rem;
+    position: absolute;
+    left: 105%;
+    top: 55%;
 }
 
 .ellipse-11-7v3 {
     position: absolute;
-    right: -80%;
-    top: 72%;
-    width: 90px;
+    left: 127%;
+    top: 78%;
+    width: 70px;
+    height: 70px;
 }
 
 /* Latest Properties */
 .latest {
-    position: absolute;
+    /* position: absolute;
     top: 270%;
-    left: 8.1%;
-    padding-bottom: 90px;
+    left: 8.1%; */
+    position: relative;
+    height: 100vh;
+    padding: 0 8.1% 350px;
 }
 
 .latest .headings {
@@ -656,7 +674,6 @@ nav .logo img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
 }
 
 .house-listings .list .main-img {
@@ -720,6 +737,26 @@ nav .logo img {
 .house-listings .list .beds-bath a {
     margin-left: 28px;
     color: #3a0ba3;
+}
+
+.house-listings swiper-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: scroll;
+}
+
+.house-listings .swiper-wrapper-2 {
+    display: flex;
+    gap: 30px;
+}
+
+.house-listings .swiper-slide-2 {
+    background: #fff;
+}
+
+.house-listings .swiper-scrollbar {
+    background-color: #3a0ba3;
 }
 
 /* Our Services */
