@@ -46,15 +46,40 @@ nav {
     font-size: 1rem;
 }
 
-.links a {
-    padding: 0 10px;
-    color: #0b090a;
-}
-
 nav .logo img {
     width: 90px;
 }
 
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    padding: 0 20px;
+}
+
+nav ul li a {
+    padding-bottom: 2px;
+    color: #0b090a;
+}
+
+nav ul li a:hover {
+    color: #4361ee;
+}
+
+nav ul li::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #3a0ca3;
+    display: block;
+    transition: 0.5s;
+    margin: auto;
+}
+
+nav ul li:hover::after {
+    width: 100%;
+}
 
 /* Register/Login & Add listing button Section*/
 .account {
@@ -454,7 +479,7 @@ nav .logo img {
     width: 140px;
     position: absolute;
     left: 11%;
-    top: -65%;
+    top: -35%;
 }
 
 .trustees .trustees-logo {
@@ -697,6 +722,12 @@ nav .logo img {
 .house-listings .list-4 .main-img {
     background-image: url(../assets/rectangle-21-bg-JHH.png);
 }
+.house-listings .list-5 .main-img {
+    background-image: url(../assets/house-1.jpg);
+}
+.house-listings .list-6 .main-img {
+    background-image: url(../assets/house-2.jpg);
+}
 
 .house-listings .list .price {
     font-size: 1.5rem;
@@ -740,20 +771,14 @@ nav .logo img {
     height: 100%;
     display: flex;
     overflow: scroll;
+    scrollbar-color: #4361ee #3a0ba3;
+    scrollbar-width: thin;
     padding-bottom: 30px;
 }
 
 .house-listings .swiper-wrapper-2 {
     display: flex;
     gap: 30px;
-}
-
-.house-listings .swiper-slide-2 {
-    background: #fff;
-}
-
-.house-listings .swiper-scrollbar {
-    background-color: #3a0ba3;
 }
 
 /* Our Services */
@@ -1260,10 +1285,23 @@ nav .logo img {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(../assets/ellipse-15-bg.png);
     border-radius: 2.5rem;
     flex-shrink: 0;
 }
+
+.testimonials .testimonies .testifier .picture-1{
+    background-image: url(../assets/ellipse-15-bg.png);
+}
+.testimonials .testimonies .testifier .picture-2{
+    background-image: url(../assets/ellipse-4-bg.png);
+}
+.testimonials .testimonies .testifier .picture-3{
+    background-image: url(../assets/ellipse-7-bg.png);
+}
+.testimonials .testimonies .testifier .picture-4{
+    background-image: url(../assets/ellipse-3-bg.png);
+}
+
 .testimonials .testimonies .testifier .name {
     font-size: 1.20rem;
     font-weight: 500;
@@ -1286,20 +1324,18 @@ nav .logo img {
 
 /* Agent */
 .agent {
-    position: absolute;
-    top: 925%;
-    left: 8.1%;
+    position: relative;
+    padding: 100px 8.1%;
 }
 
 .agent .agent-container {
-    position: relative;
-    width: 134%;
     height: 17rem;
     background-color: #3a0ca3;
     border-radius: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 450px;
 }
 
 .agent .agent-container .agent-picture {
@@ -1356,8 +1392,7 @@ nav .logo img {
 
 /* Footer */
 footer {
-    position: absolute;
-    top: 980%;
+    position: relative;
     background-color: rgba(67, 97, 238, 0.1000000015);
     display: flex;
     flex-direction: column;
@@ -1400,11 +1435,22 @@ footer .foot .reside-info .email img {
     width: 20px;
 }
 
+footer .foot .subscribe .bottom-input {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    width: 310px;
+    height: 60px;
+    border-radius: 50px;
+    position: relative;
+}
+
 footer .foot .subscribe .bottom-input input {
     font-size: 1.1rem;
-    width: 290px;
-    height: 40px;
-    margin-bottom: 20px;
+    width: 260px;
+    height: 60px;
+    margin-bottom: 10px;
     border-radius: 50px;
     padding: 10px 20px;
     background-color: #f5f5f5;
@@ -1415,8 +1461,7 @@ footer .foot .subscribe .bottom-input input {
 
 footer .foot .subscribe .bottom-input a {
     position: absolute;
-    right: 9.6%;
-    top: 36.5%;
+    right: 3%;
 }
 
 footer .foot .subscribe img {
@@ -1539,3 +1584,24 @@ footer .copyright .terms {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Back To Top */
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #3a0ca3; /* Set a background color */
+    color: white; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+    background-color: #555; /* Add a dark-grey background on hover */
+  }

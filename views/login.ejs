@@ -7,37 +7,59 @@
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-    <div class="center">
-        
-        <div class="logo">
-            <img src="/assets/logo.png" alt="">
+    <ul class="background">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+     </ul>
+    <div class="form-container">
+        <div class="log-img">
+            <img src="/assets/log.jpg" alt="">
         </div>
-        <h1>Login</h1>
-
-        <form action="/auth/login" method="POST">
-            <div class="txt_field">
-                <input type="email" name="email" required>
-                <span></span>
-                <label for="">Email</label>
+        <div class="center">
+            <div class="logo">
+                <img src="/assets/logo.png" alt="">
             </div>
-            <div class="txt_field">
-                <input type="password" name="password" required>
-                <span></span>
-                <label for="">Password</label>
-            </div>
+            <h1>Login</h1>
 
-            <% if (error && error.length > 0) { %>
-                <div class="error">
-                    <%= error[0] %>
+            <form action="/auth/login" method="POST">
+                <div class="txt_field">
+                    <input type="email" name="email" required>
+                    <span></span>
+                    <label for="">Email</label>
                 </div>
-            <% } %>
+                <div class="txt_field">
+                    <input type="password" name="password" required>
+                    <span></span>
+                    <label for="">Password</label>
+                </div>
 
-            <button type="submit">Login</button>
+                <% if (error && error.length > 0) { %>
+                    <div class="error">
+                        <%= error[0] %>
+                    </div>
+                <% } %>
 
-            <div class="signup_link">
-                Don't have an account? <a href="/auth/register">Sign Up</a>
-            </div>
-        </form>
+                <button type="submit">Login</button>
+
+                <div class="signup_link">
+                    Don't have an account? <a href="/auth/register">Sign Up</a>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>

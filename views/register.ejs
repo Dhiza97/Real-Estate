@@ -7,94 +7,103 @@
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-    <div class="center register">
-        <div class="logo">
-            <img src="/assets/logo.png" alt="">
+    <div class="form-container-reg">
+
+        <div class="center register">
+            <div class="logo">
+                <img src="/assets/logo.png" alt="">
+            </div>
+            
+            <h1>Register</h1>
+            <form action="/auth/register" method="POST">
+                <div class="txt_field">
+                    <input type="text" name="fullName" required>
+                    <span></span>
+                    <label for="">Full Name</label>
+                </div>
+                
+                <div class="txt_field">
+                    <input type="email" name="email" required>
+                    <span></span>
+                    <label for="">Email</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="tel" name="phoneNumber" required>
+                    <span></span>
+                    <label for="">Phone Number</label>
+                </div>
+                
+                <div class="txt_field">
+                    <input type="text" name="address" required>
+                    <span></span>
+                    <label for="">Address</label>
+                </div>
+                
+                <div class="txt_field">
+                    <input type="text" name="city" required>
+                    <span></span>
+                    <label for="">City</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="text" name="state" required>
+                    <span></span>
+                    <label for="">State/Province</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="text" name="zipCode" required>
+                    <span></span>
+                    <label for="">ZIP/Postal Code</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="text" name="country" required>
+                    <span></span>
+                    <label for="">Country</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="text" name="occupation" required>
+                    <span></span>
+                    <label for="">Occupation</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="text" name="referralSource" required>
+                    <span></span>
+                    <label for="">Referral Source</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="password" name="password" required>
+                    <span></span>
+                    <label for="">Password</label>
+                </div>
+
+                <div class="txt_field">
+                    <input type="password" name="confirmPassword" required>
+                    <span></span>
+                    <label for="">Confirm Password</label>
+                </div>
+                
+                <input type="checkbox" name="termsAgreement" required> I agree to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a><br><br>
+                <input type="checkbox" name="newsletterSubscription"> Subscribe to newsletter<br>
+                <!-- Add CAPTCHA or Anti-Spam Measures here -->
+                <button type="submit" class="register-btn">Register</button>
+
+                <div class="signup_link">
+                    Already have an account? <a href="/auth/login">Login</a>
+                </div>
+            </form>
         </div>
-        
-        <h1>Register</h1>
-        <form action="/auth/register" method="POST">
-            <div class="txt_field">
-                <input type="text" name="fullName" required>
-                <span></span>
-                <label for="">Full Name</label>
-            </div>
-            
-            <div class="txt_field">
-                <input type="email" name="email" required>
-                <span></span>
-                <label for="">Email</label>
-            </div>
 
-            <div class="txt_field">
-                <input type="tel" name="phoneNumber" required>
-                <span></span>
-                <label for="">Phone Number</label>
-            </div>
-            
-            <div class="txt_field">
-                <input type="text" name="address" required>
-                <span></span>
-                <label for="">Address</label>
-            </div>
-            
-            <div class="txt_field">
-                <input type="text" name="city" required>
-                <span></span>
-                <label for="">City</label>
-            </div>
+        <div class="reg-img typewriter">
+            <h1>Welcome!</h1>
+            <img src="/assets/reg.jpg" alt="">
+        </div>
 
-            <div class="txt_field">
-                <input type="text" name="state" required>
-                <span></span>
-                <label for="">State/Province</label>
-            </div>
-
-            <div class="txt_field">
-                <input type="text" name="zipCode" required>
-                <span></span>
-                <label for="">ZIP/Postal Code</label>
-            </div>
-
-            <div class="txt_field">
-                <input type="text" name="country" required>
-                <span></span>
-                <label for="">Country</label>
-            </div>
-
-            <div class="txt_field">
-                <input type="text" name="occupation" required>
-                <span></span>
-                <label for="">Occupation</label>
-            </div>
-
-            <div class="txt_field">
-                <input type="text" name="referralSource" required>
-                <span></span>
-                <label for="">Referral Source</label>
-            </div>
-
-            <div class="txt_field">
-                <input type="password" name="password" required>
-                <span></span>
-                <label for="">Password</label>
-            </div>
-
-            <div class="txt_field">
-                <input type="password" name="confirmPassword" required>
-                <span></span>
-                <label for="">Confirm Password</label>
-            </div>
-            
-            <input type="checkbox" name="termsAgreement" required> I agree to the <a href="/terms">Terms of Service</a> and <a href="/privacy">Privacy Policy</a><br><br>
-            <input type="checkbox" name="newsletterSubscription"> Subscribe to newsletter<br>
-            <!-- Add CAPTCHA or Anti-Spam Measures here -->
-            <button type="submit" class="register-btn">Register</button>
-
-            <div class="signup_link">
-                Already have an account? <a href="/auth/login">Login</a>
-            </div>
-        </form>
     </div>
 </body>
 </html>
