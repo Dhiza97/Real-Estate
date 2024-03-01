@@ -33,6 +33,10 @@ router.post('/register', authController.postRegister);
 router.get('/dashboard', authController.getDashboard);
 router.post('/dashboard', authController.postDashboard);
 
+// Route for editing profile
+router.get('/edit', authController.getEditProfile);
+
+
 // Logout route
 router.get('/logout', authController.logout)
 

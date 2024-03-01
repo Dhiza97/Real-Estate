@@ -33,6 +33,7 @@ exports.postLogin = async (req, res) => {
         req.session.fullName = user.fullName; // Set the fullName in session
         req.session.email = user.email; // Set email in session
         req.session.phoneNumber = user.phoneNumber; // Set phone number in session
+        req.session.address = user.address; // Set address in session
         req.flash('success', 'Login successful');
         res.redirect('/auth/'); // Redirect to the home page
     } catch (error) {
@@ -147,10 +148,25 @@ exports.postDashboard = async (req, res) => {
         // Update more fields as needed
 
         req.flash('success', 'Profile updated successfully');
-        res.redirect('/auth/dashboard');
+        res.redirect('/auth/dashboard'); // Redirect back to the dashboard page
     } catch (error) {
         console.error(error);
         req.flash('error', 'Something went wrong');
-        res.redirect('/auth/dashboard');
+        res.redirect('/auth/edit'); // Redirect back to the edit profile page in case of error
     }
+};
+
+// Controller function for rendering the edit profile page
+exports.getEditProfile = (req, res) => {
+    // Retrieve user information from session or database (if needed)
+    const user = {
+        fullName: req.session.fullName || '', // Adjust according to your logic
+        email: req.session.email || '', // Adjust according to your logic
+        phoneNumber: req.session.phoneNumber || '', // Adjust according to your logic
+        address: req.session.address || '', // Adjust according to your logic
+        // Add more fields as needed
+    };
+
+    // Render the edit profile view with user information
+    res.render('editProfile', { user, fullName: req.session.fullName, isAuthenticated: req.session.isAuthenticated });
 };

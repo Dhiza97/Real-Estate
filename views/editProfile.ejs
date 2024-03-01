@@ -1,12 +1,6 @@
 <%- include('partials/header', { fullName: fullName }) %>
-<h1>Dashboard</h1>
 
-<% if (locals.success) { %>
-    <div class="alert alert-success"><%= locals.success %></div>
-<% } %>
-<% if (locals.error) { %>
-    <div class="alert alert-danger"><%= locals.error %></div>
-<% } %>
+<h1>Edit Profile</h1>
 
 <form action="/auth/dashboard" method="POST">
     <div class="form-group">
@@ -25,6 +19,6 @@
         <label for="address">Address:</label>
         <input type="text" id="address" name="address" value="<%= user.address %>" required>
     </div>
-    <!-- Add more fields as needed -->
-    <a href="/auth/edit" class="btn btn-primary">Edit Profile</a>
+    <!-- Add fields for email, phone number, address, etc. -->
+    <button type="submit" class="btn btn-primary">Update Profile</button>
 </form>
