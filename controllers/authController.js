@@ -137,10 +137,26 @@ exports.getDashboard = (req, res) => {
 // Controller function for handling form submission for updating user information
 exports.postDashboard = async (req, res) => {
     try {
+        // Retrieve user's ID from the session
+        const userId = req.session.userId;
+
         // Retrieve updated user information from the form
         const { fullName, email, phoneNumber, address } = req.body;
 
-        // Update user information in session or database (if needed)
+        // Find the user in the database by ID
+        const user = await User.findById(userId);
+
+        // Update user information with new values
+        user.fullName = fullName;
+        user.email = email;
+        user.phoneNumber = phoneNumber;
+        user.address = address;
+        // Update more fields as needed
+
+        // Save the updated user information to the database
+        await user.save();
+
+        // Update user information in session
         req.session.fullName = fullName;
         req.session.email = email;
         req.session.phoneNumber = phoneNumber;
@@ -155,6 +171,7 @@ exports.postDashboard = async (req, res) => {
         res.redirect('/auth/edit'); // Redirect back to the edit profile page in case of error
     }
 };
+
 
 // Controller function for rendering the edit profile page
 exports.getEditProfile = (req, res) => {
