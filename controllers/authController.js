@@ -31,6 +31,8 @@ exports.postLogin = async (req, res) => {
         req.session.userId = user._id;
         req.session.isAuthenticated = true;
         req.session.fullName = user.fullName; // Set the fullName in session
+        req.session.email = user.email; // Set email in session
+        req.session.phoneNumber = user.phoneNumber; // Set phone number in session
         req.flash('success', 'Login successful');
         res.redirect('/auth/'); // Redirect to the home page
     } catch (error) {
@@ -52,6 +54,7 @@ exports.logout = (req, res) => {
         }
     });
 };
+
 
 exports.getRegister = (req, res) => {
     res.render('register');
@@ -114,3 +117,40 @@ exports.postRegister = [
         }
     }
 ];
+
+// Controller function for rendering the dashboard page
+exports.getDashboard = (req, res) => {
+    // Retrieve user information from session or database (if needed)
+    const user = {
+        fullName: req.session.fullName || '', // Adjust according to your logic
+        email: req.session.email || '', // Adjust according to your logic
+        phoneNumber: req.session.phoneNumber || '', // Adjust according to your logic
+        address: req.session.address || '', // Adjust according to your logic
+        // Add more fields as needed
+    };
+
+    // Render the dashboard view with user information and authentication status
+    res.render('dashboard', { user, fullName: req.session.fullName, isAuthenticated: req.session.isAuthenticated });
+};
+
+// Controller function for handling form submission for updating user information
+exports.postDashboard = async (req, res) => {
+    try {
+        // Retrieve updated user information from the form
+        const { fullName, email, phoneNumber, address } = req.body;
+
+        // Update user information in session or database (if needed)
+        req.session.fullName = fullName;
+        req.session.email = email;
+        req.session.phoneNumber = phoneNumber;
+        req.session.address = address;
+        // Update more fields as needed
+
+        req.flash('success', 'Profile updated successfully');
+        res.redirect('/auth/dashboard');
+    } catch (error) {
+        console.error(error);
+        req.flash('error', 'Something went wrong');
+        res.redirect('/auth/dashboard');
+    }
+};

@@ -29,6 +29,10 @@ router.post('/login', authController.postLogin);
 router.get('/register', authController.getRegister);
 router.post('/register', authController.postRegister);
 
+// Dashboard route
+router.get('/dashboard', authController.getDashboard);
+router.post('/dashboard', authController.postDashboard);
+
 // Logout route
 router.get('/logout', authController.logout)
 
