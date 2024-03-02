@@ -1,30 +1,112 @@
-<%- include('partials/header', { fullName: fullName }) %>
-<h1>Dashboard</h1>
 
-<% if (locals.success) { %>
-    <div class="alert alert-success"><%= locals.success %></div>
-<% } %>
-<% if (locals.error) { %>
-    <div class="alert alert-danger"><%= locals.error %></div>
-<% } %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="dash-sidebar">
+        <div class="dash-logo"></div>
+        <ul class="dash-menu">
+            <li class="active">
+                <a href="#">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Statistics</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Career</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-question-circle"></i>
+                    <span>FAQ</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="#">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
 
-<form action="/auth/dashboard" method="POST">
-    <div class="form-group">
-        <label for="fullName">Full Name:</label>
-        <input type="text" id="fullName" name="fullName" value="<%= user.fullName %>" required>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>Primary</span>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="user--info">
+                <div class="search--box">
+                    <i class="fa fa-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+                <img src="/assets/avatar.png" alt="">
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<%= user.email %>" required>
+    
+    <div class="info">
+    <% if (locals.success) { %>
+        <div class="alert alert-success"><%= locals.success %></div>
+    <% } %>
+    <% if (locals.error) { %>
+        <div class="alert alert-danger"><%= locals.error %></div>
+    <% } %>
+    
+    <form action="/auth/dashboard" method="POST">
+        <div class="form-group">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" value="<%= user.fullName %>" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<%= user.email %>" required>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" value="<%= user.phoneNumber %>" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" value="<%= user.address %>" required>
+        </div>
+        <!-- Add more fields as needed -->
+        <a href="/auth/edit" class="btn btn-primary">Edit Profile</a>
+    </form>
     </div>
-    <div class="form-group">
-        <label for="phoneNumber">Phone Number:</label>
-        <input type="text" id="phoneNumber" name="phoneNumber" value="<%= user.phoneNumber %>" required>
-    </div>
-    <div class="form-group">
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" value="<%= user.address %>" required>
-    </div>
-    <!-- Add more fields as needed -->
-    <a href="/auth/edit" class="btn btn-primary">Edit Profile</a>
-</form>
+</body>
+</html>
