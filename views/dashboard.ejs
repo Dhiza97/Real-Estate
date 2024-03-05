@@ -217,7 +217,7 @@
                 <% if (locals.error) { %>
                     <div class="alert alert-danger"><%= locals.error %></div>
                 <% } %>
-                <h1>Profile</h1>
+                <h2 class="header--title">Profile</h2>
                 
                 <form action="/auth/dashboard" method="POST">
                     <div class="form-group">
@@ -240,6 +240,13 @@
                     <a href="/auth/edit" class="btn btn-primary">Edit Profile</a>
                 </form>
             </div>
+        </div>
+
+        <div class="item statistics">
+            <div class="item-info">
+                <h2 class="header--title">Statistics</h2>
+            </div>
+
         </div>
         
     </div>
@@ -278,6 +285,12 @@
                 }
             })
         }
+
+        document.addEventListener("DOMContentLoaded", function() {
+        document.querySelector('.item.dashboard').addEventListener('click', function() {
+            document.querySelector('.header--title h2').innerText = 'Dashboard'; // Change 'Dashboard' to whatever text you want
+        });
+    });
     </script>
     
 </body>
