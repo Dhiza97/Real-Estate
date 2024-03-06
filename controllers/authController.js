@@ -208,6 +208,12 @@ exports.getProfileSection = (req, res) => {
     const userProfileData = {
         fullName: req.session.fullName,
         email: req.session.email,
+        address: req.session.address,
+        city: req.session.city,
+        state: req.session.state,
+        zipCode: req.session.zipCode,
+        country: req.session.country,
+        occupation: req.session.occupation,
         // Add more user profile data as needed
     };
 
@@ -215,7 +221,7 @@ exports.getProfileSection = (req, res) => {
     res.render('dashboard', { user: userProfileData });
 };
 
-exports.getStatistics = (req, res) => {
+exports.getStatisticsSection = (req, res) => {
     // Logic to retrieve statistics data and render the statistics page
     res.render('statistics'); // Adjust the view name as per your project setup
 };

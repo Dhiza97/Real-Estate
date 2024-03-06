@@ -34,7 +34,7 @@ router.get('/dashboard', authController.getDashboard);
 router.post('/dashboard', authController.postDashboard);
 
 router.get('/profile', authController.getProfileSection);
-router.get('/statistics', authController.getStatistics);
+router.get('/statistics', authController.getStatisticsSection);
 
 // Route for editing profile
 router.get('/edit', authController.getEditProfile);
