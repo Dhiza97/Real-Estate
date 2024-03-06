@@ -4,6 +4,8 @@ const userSchema = new mongoose.Schema({
     fullName: String,
     email: { type: String, unique: true },
     phoneNumber: String,
+    profilePicture: { data: Buffer, contentType: String },
+    role: { type: String, enum: ['agent', 'customer'] },
     address: String,
     city: String,
     state: String,

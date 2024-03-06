@@ -1,6 +1,21 @@
 const bcrypt = require('bcrypt');
+// handling file uploads
+const multer = require('multer');
 const { check, validationResult } = require('express-validator');
 const User = require('../models/user');
+
+// Set up multer storage
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/profile-pictures'); // Adjust the destination folder as needed
+    },
+    filename: function (req, file, cb) {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        cb(null, file.fieldname + '-' + uniqueSuffix + '-' + file.originalname);
+    }
+});
+
+const upload = multer({ storage: storage });
 
 exports.getHome = (req, res) => {
     // Get the full name of the user from the session or wherever it's stored
@@ -69,7 +84,9 @@ exports.postRegister = [
         }
         return true;
     }),
-    // Add more validation rules for other fields as needed
+
+     // Handle file upload
+     upload.single('profilePicture'),
 
     async (req, res) => {
         const errors = validationResult(req);
@@ -89,11 +106,25 @@ exports.postRegister = [
             // Hash the password
             const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
+            let profilePictureData = null;
+            let profilePictureContentType = null;
+
+            // Handle file upload
+            if (req.file) {
+                profilePictureData = req.file.buffer;
+                profilePictureContentType = req.file.mimetype;
+            }
+
             // Create a new user
             const user = new User({
                 fullName: req.body.fullName,
                 email: req.body.email,
                 phoneNumber: req.body.phoneNumber,
+                profilePicture: {
+                    data: profilePictureData,
+                    contentType: profilePictureContentType
+                },
+                role: req.body.role,
                 address: req.body.address,
                 city: req.body.city,
                 state: req.body.state,
@@ -172,6 +203,22 @@ exports.postDashboard = async (req, res) => {
     }
 };
 
+exports.getProfileSection = (req, res) => {
+    // Retrieve user profile data (if needed)
+    const userProfileData = {
+        fullName: req.session.fullName,
+        email: req.session.email,
+        // Add more user profile data as needed
+    };
+
+    // Render the profile section
+    res.render('dashboard', { user: userProfileData });
+};
+
+exports.getStatistics = (req, res) => {
+    // Logic to retrieve statistics data and render the statistics page
+    res.render('statistics'); // Adjust the view name as per your project setup
+};
 
 // Controller function for rendering the edit profile page
 exports.getEditProfile = (req, res) => {
