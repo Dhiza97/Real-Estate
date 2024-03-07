@@ -38,6 +38,7 @@ router.get('/statistics', authController.getStatisticsSection);
 
 // Route for editing profile
 router.get('/edit', authController.getEditProfile);
+router.post('/edit', authController.postEditProfile);
 
 // Logout route
 router.get('/logout', authController.logout)

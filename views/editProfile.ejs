@@ -18,7 +18,7 @@
                 </a>
             </li>
             <li data-li='profile' id="profile">
-                <a href="#">
+                <a href="#editProfile">
                     <i class="fas fa-user"></i>
                     <span>Profile</span>
                 </a>
@@ -208,7 +208,7 @@
             </div>
         </div>
 
-        <div class="item profile" style="display: none;">
+        <div class="item profile" id="editProfile" style="display: none;">
             <div class="item-info">
                 <% if (locals.success) { %>
                     <div class="alert alert-success"><%= locals.success %></div>

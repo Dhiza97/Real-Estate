@@ -151,56 +151,38 @@ exports.postRegister = [
 ];
 
 // Controller function for rendering the dashboard page
-exports.getDashboard = (req, res) => {
-    // Retrieve user information from session or database (if needed)
-    const user = {
-        fullName: req.session.fullName || '', // Adjust according to your logic
-        email: req.session.email || '', // Adjust according to your logic
-        phoneNumber: req.session.phoneNumber || '', // Adjust according to your logic
-        address: req.session.address || '', // Adjust according to your logic
-        // Add more fields as needed
-    };
-
-    // Render the dashboard view with user information and authentication status
-    res.render('dashboard', { user, fullName: req.session.fullName, isAuthenticated: req.session.isAuthenticated });
-};
-
-// Controller function for handling form submission for updating user information
-exports.postDashboard = async (req, res) => {
+exports.getDashboard = async (req, res) => {
     try {
+        // Check if user is logged in
+        if (!req.session.userId) {
+            req.flash('error', 'You must be logged in to access the dashboard');
+            return res.redirect('/auth/login');
+        }
+
         // Retrieve user's ID from the session
         const userId = req.session.userId;
-
-        // Retrieve updated user information from the form
-        const { fullName, email, phoneNumber, address } = req.body;
 
         // Find the user in the database by ID
         const user = await User.findById(userId);
 
-        // Update user information with new values
-        user.fullName = fullName;
-        user.email = email;
-        user.phoneNumber = phoneNumber;
-        user.address = address;
-        // Update more fields as needed
+        // Check if user exists
+        if (!user) {
+            req.flash('error', 'User not found');
+            return res.redirect('/auth/login');
+        }
 
-        // Save the updated user information to the database
-        await user.save();
-
-        // Update user information in session
-        req.session.fullName = fullName;
-        req.session.email = email;
-        req.session.phoneNumber = phoneNumber;
-        req.session.address = address;
-        // Update more fields as needed
-
-        req.flash('success', 'Profile updated successfully');
-        res.redirect('/auth/dashboard'); // Redirect back to the dashboard page
+        // Render the dashboard template with the user data
+        res.render('dashboard', { user: user });
     } catch (error) {
         console.error(error);
         req.flash('error', 'Something went wrong');
-        res.redirect('/auth/edit'); // Redirect back to the edit profile page in case of error
+        res.redirect('/auth/login');
     }
+};
+
+// Controller function for handling form submission for updating user information
+exports.postDashboard = async (req, res) => {
+    
 };
 
 exports.getProfileSection = (req, res) => {
@@ -239,4 +221,54 @@ exports.getEditProfile = (req, res) => {
 
     // Render the edit profile view with user information
     res.render('editProfile', { user, fullName: req.session.fullName, isAuthenticated: req.session.isAuthenticated });
+};
+
+// Controller function for handling form submission for updating user information
+exports.postEditProfile = async (req, res) => {
+    try {
+        // Retrieve user's ID from the session
+        const userId = req.session.userId;
+
+        // Retrieve updated user information from the form
+        const { fullName, email, phoneNumber, role, address, city, state, zipCode, country, occupation } = req.body;
+
+        // Find the user in the database by ID
+        const user = await User.findById(userId);
+
+        // Update user information with new values
+        user.fullName = fullName;
+        user.email = email;
+        user.phoneNumber = phoneNumber;
+        user.role = role;
+        user.address = address;
+        user.city = city;
+        user.state = state;
+        user.zipCode = zipCode;
+        user.country = country;
+        user.occupation = occupation;
+        // Update more fields as needed
+
+        // Save the updated user information to the database
+        await user.save();
+
+        // Update user information in session
+        req.session.fullName = fullName;
+        req.session.email = email;
+        req.session.phoneNumber = phoneNumber;
+        req.session.role = role;
+        req.session.address = address;
+        req.session.city = city;
+        req.session.state = state;
+        req.session.zipCode = zipCode;
+        req.session.country = country;
+        req.session.occupation = occupation;
+        // Update more fields as needed
+
+        req.flash('success', 'Profile updated successfully');
+        res.redirect('/auth/dashboard'); // Redirect back to the dashboard page
+    } catch (error) {
+        console.error(error);
+        req.flash('error', 'Something went wrong');
+        res.redirect('/auth/edit'); // Redirect back to the edit profile page in case of error
+    }
 };
