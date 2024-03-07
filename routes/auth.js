@@ -40,6 +40,20 @@ router.get('/statistics', authController.getStatisticsSection);
 router.get('/edit', authController.getEditProfile);
 router.post('/edit', authController.postEditProfile);
 
+// Route to render view property page
+router.get('/viewProperty', async (req, res) => {
+    try {
+        // Query the database for property listings
+        const properties = await Property.find();
+
+        // Render the view property page and pass the property data to it
+        res.render('viewProperty', { properties });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 // Logout route
 router.get('/logout', authController.logout)
 

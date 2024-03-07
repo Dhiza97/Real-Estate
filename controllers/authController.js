@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
-// handling file uploads
 const multer = require('multer');
+const Property = require('../models/propertyModel');
+const fs = require('fs');
 const { check, validationResult } = require('express-validator');
 const User = require('../models/user');
 
@@ -270,5 +271,53 @@ exports.postEditProfile = async (req, res) => {
         console.error(error);
         req.flash('error', 'Something went wrong');
         res.redirect('/auth/edit'); // Redirect back to the edit profile page in case of error
+    }
+};
+
+exports.submitProperty = async (req, res) => {
+    try {
+        const {
+            propertyType,
+            address,
+            city,
+            state,
+            price,
+            description,
+            numberOfBedrooms,
+            numberOfBathrooms,
+            contactName,
+            contactEmail,
+            contactPhoneNumber
+        } = req.body;
+
+        // Read the uploaded image file
+        const propertyImage = {
+            data: fs.readFileSync(req.file.path),
+            contentType: req.file.mimetype
+        };
+
+        // Create a new property listing
+        const property = new Property({
+            propertyType,
+            address,
+            city,
+            state,
+            price,
+            propertyImage,
+            description,
+            numberOfBedrooms,
+            numberOfBathrooms,
+            contactName,
+            contactEmail,
+            contactPhoneNumber
+        });
+
+        // Save property to the database
+        await property.save();
+
+        res.redirect('/auth/viewProperty'); // Redirect to view property page
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
     }
 };
