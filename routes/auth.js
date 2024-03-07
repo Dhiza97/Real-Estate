@@ -40,6 +40,9 @@ router.get('/statistics', authController.getStatisticsSection);
 router.get('/edit', authController.getEditProfile);
 router.post('/edit', authController.postEditProfile);
 
+// Define route for rendering addListingForm
+router.get('/addListingForm', authController.getAddListingForm);
+
 // Route to render view property page
 router.get('/viewProperty', async (req, res) => {
     try {

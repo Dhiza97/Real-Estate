@@ -19,11 +19,16 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 exports.getHome = (req, res) => {
-    // Get the full name of the user from the session or wherever it's stored
-    const fullName = req.session.fullName; // Adjust this according to your application's logic
+    const fullName = req.session.fullName;
+    const isAuthenticated = req.session.isAuthenticated; // Add this line to retrieve isAuthenticated from session
 
-    // Render the home page view and pass the fullName variable to it
-    res.render('home', { fullName });
+    res.render('home', { fullName, isAuthenticated }); // Pass isAuthenticated to the home template
+};
+
+exports.renderHeader = (req, res, next) => {
+    const isAuthenticated = req.session.isAuthenticated; // Retrieve isAuthenticated from session or wherever it's stored
+    res.locals.isAuthenticated = isAuthenticated; // Make isAuthenticated available to all templates
+    next(); // Call next middleware function
 };
 
 exports.getLogin = (req, res) => {
@@ -272,6 +277,12 @@ exports.postEditProfile = async (req, res) => {
         req.flash('error', 'Something went wrong');
         res.redirect('/auth/edit'); // Redirect back to the edit profile page in case of error
     }
+};
+
+exports.getAddListingForm = (req, res) => {
+    const fullName = req.session.fullName; // Retrieve the fullName from the session or wherever it's stored
+    const isAuthenticated = req.session.isAuthenticated || false; // Set isAuthenticated to false if not defined in session
+    res.render('addListingForm', { fullName, isAuthenticated }); // Pass both fullName and isAuthenticated variables to the template
 };
 
 exports.submitProperty = async (req, res) => {
