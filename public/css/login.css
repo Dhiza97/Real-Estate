@@ -406,24 +406,16 @@ input[type="file"]::file-selector-button:active {
     animation: 
       typing 1.5s steps(40, end),
       blink-caret .75s step-end infinite;
-  }
+}
   
   /* The typing effect */
-  @keyframes typing {
+@keyframes typing {
     from { width: 0 }
     to { width: 30% }
-  }
+}
   
   /* The typewriter cursor effect */
-  @keyframes blink-caret {
+@keyframes blink-caret {
     from, to { border-color: transparent }
     50% { border-color: #3a0ca3; }
-  }
-  
-
-/* .profile-picture {
-    margin-bottom: 20px;
-    color: #3a0ca3;
-    font-size: 16px;
-    cursor: pointer;
-} */
+}

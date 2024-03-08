@@ -44,6 +44,7 @@ nav {
     align-items: center;
     height: 80px;
     font-size: 1rem;
+    box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.1), 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav .logo img {
@@ -1600,8 +1601,131 @@ footer .copyright .terms {
     padding: 15px; /* Some padding */
     border-radius: 10px; /* Rounded corners */
     font-size: 18px; /* Increase font size */
-  }
+    transition: all .5s ease-in-out;
+}
   
-  #myBtn:hover {
+#myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
-  }
+}
+
+
+  /* Add Listng Page */
+.addLisitng {
+    position: relative;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.addLisitng .addForm-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 50%;
+    box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.1), 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addLisitng .addForm-container h1 {
+    font-weight: 200;
+    font-size: 3rem;
+    margin: 30px 0;
+}
+
+.addLisitng .addForm-container textarea {
+    font-size: 1.1rem;
+    width: 450px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border: none;
+    outline: none;
+}
+
+.addLisitng .addForm-container input {
+    font-size: 1.1rem;
+    width: 450px;
+    height: 60px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border: none;
+    outline: none;
+}
+
+.addLisitng .addForm-container select {
+    font-size: 1.1rem;
+    width: 450px;
+    height: 60px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border: none;
+    outline: none;
+}
+
+.addLisitng .addForm-container input:focus {
+    border: 1px solid #3a0ca3;
+}
+
+.addLisitng .addForm-container input[type="file"]::before {
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    left: 16px;
+    height: 20px;
+    width: 20px;
+    content: "";
+}
+  
+.addLisitng .addForm-container input[type="file"]::after {
+    position: absolute;
+    pointer-events: none;
+    top: 11px;
+    left: 40px;
+    color: #0964b0;
+}
+
+.addLisitng .addForm-container input[type="file"]::file-selector-button {
+    font-size: 1rem;
+    border-radius: 4px;
+    padding: 0 16px;
+    height: 40px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    margin-right: 16px;
+    margin-bottom: 20px;
+    transition: background-color 200ms;
+}
+
+.addLisitng .addForm-container input[type="file"]::file-selector-button:hover {
+    background-color: #f3f4f6;
+}
+
+.addLisitng .addForm-container input[type="file"]::file-selector-button:active {
+    background-color: #e5e7eb;
+}
+
+.addLisitng .addForm-container button {
+    font-size: 1.3rem;
+    width: 450px;
+    height: 60px;
+    margin-bottom: 30px;
+    color: #f9f9f9;
+    background: #3a0ca3;
+    border-radius: 20px;
+    border-style: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.addLisitng .addForm-container button:hover {
+    outline: 1px solid #3a0ca3;
+}
