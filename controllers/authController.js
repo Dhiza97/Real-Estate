@@ -214,65 +214,86 @@ exports.getStatisticsSection = (req, res) => {
     res.render('statistics'); // Adjust the view name as per your project setup
 };
 
-// Controller function for rendering the edit profile page
-exports.getEditProfile = (req, res) => {
-    // Retrieve user information from session or database (if needed)
-    const user = {
-        fullName: req.session.fullName || '', // Adjust according to your logic
-        email: req.session.email || '', // Adjust according to your logic
-        phoneNumber: req.session.phoneNumber || '', // Adjust according to your logic
-        address: req.session.address || '', // Adjust according to your logic
-        // Add more fields as needed
-    };
-
-    // Render the edit profile view with user information
-    res.render('editProfile', { user, fullName: req.session.fullName, isAuthenticated: req.session.isAuthenticated });
-};
-
 // Controller function for handling form submission for updating user information
+// exports.postEditProfile = async (req, res) => {
+//     try {
+//         // Retrieve user's ID from the session
+//         const userId = req.session.userId;
+
+//         // Retrieve updated user information from the form
+//         const { fullName, email, phoneNumber, role, address, city, state, zipCode, country, occupation } = req.body;
+
+//         // Find the user in the database by ID
+//         const user = await User.findById(userId);
+
+//         // Update user information with new values
+//         user.fullName = fullName;
+//         user.email = email;
+//         user.phoneNumber = phoneNumber;
+//         user.role = role;
+//         user.address = address;
+//         user.city = city;
+//         user.state = state;
+//         user.zipCode = zipCode;
+//         user.country = country;
+//         user.occupation = occupation;
+//         // Update more fields as needed
+
+//         // Save the updated user information to the database
+//         await user.save();
+
+//         // Update user information in session (if needed)
+//         req.session.fullName = fullName;
+//         req.session.email = email;
+//         req.session.phoneNumber = phoneNumber;
+//         req.session.role = role;
+//         req.session.address = address;
+//         req.session.city = city;
+//         req.session.state = state;
+//         req.session.zipCode = zipCode;
+//         req.session.country = country;
+//         req.session.occupation = occupation;
+//         // Update more fields as needed
+
+//         req.flash('success', 'Profile updated successfully');
+//         res.redirect('/auth/dashboard'); // Redirect back to the dashboard page
+//     } catch (error) {
+//         console.error(error);
+//         req.flash('error', 'Something went wrong');
+//         res.redirect('/auth/edit'); // Redirect back to the edit profile page in case of error
+//     }
+// };
+
 exports.postEditProfile = async (req, res) => {
     try {
-        // Retrieve user's ID from the session
-        const userId = req.session.userId;
+        // Extract form data
+        const { userId, fullName, email, phoneNumber, role, address, city, state, zipCode, country, occupation } = req.body;
 
-        // Retrieve updated user information from the form
-        const { fullName, email, phoneNumber, role, address, city, state, zipCode, country, occupation } = req.body;
+        // Update user information in the database
+        const updatedUser = await User.findByIdAndUpdate(userId, {
+            fullName,
+            email,
+            phoneNumber,
+            role,
+            address,
+            city,
+            state,
+            zipCode,
+            country,
+            occupation
+        }, { new: true });
 
-        // Find the user in the database by ID
-        const user = await User.findById(userId);
+        if (!updatedUser) {
+            // User not found
+            req.flash('error', 'User not found');
+            return res.redirect('/auth/edit');
+        }
 
-        // Update user information with new values
-        user.fullName = fullName;
-        user.email = email;
-        user.phoneNumber = phoneNumber;
-        user.role = role;
-        user.address = address;
-        user.city = city;
-        user.state = state;
-        user.zipCode = zipCode;
-        user.country = country;
-        user.occupation = occupation;
-        // Update more fields as needed
-
-        // Save the updated user information to the database
-        await user.save();
-
-        // Update user information in session
-        req.session.fullName = fullName;
-        req.session.email = email;
-        req.session.phoneNumber = phoneNumber;
-        req.session.role = role;
-        req.session.address = address;
-        req.session.city = city;
-        req.session.state = state;
-        req.session.zipCode = zipCode;
-        req.session.country = country;
-        req.session.occupation = occupation;
-        // Update more fields as needed
-
+        // Redirect to the dashboard or profile page with a success message
         req.flash('success', 'Profile updated successfully');
-        res.redirect('/auth/dashboard'); // Redirect back to the dashboard page
+        res.redirect('/auth/dashboard'); // Adjust the redirect URL as needed
     } catch (error) {
+        // Handle errors
         console.error(error);
         req.flash('error', 'Something went wrong');
         res.redirect('/auth/edit'); // Redirect back to the edit profile page in case of error

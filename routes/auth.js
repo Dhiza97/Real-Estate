@@ -37,7 +37,6 @@ router.get('/profile', authController.getProfileSection);
 router.get('/statistics', authController.getStatisticsSection);
 
 // Route for editing profile
-router.get('/edit', authController.getEditProfile);
 router.post('/edit', authController.postEditProfile);
 
 // Define route for rendering addListingForm

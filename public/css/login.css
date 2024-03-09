@@ -191,7 +191,7 @@ body {
     left: 70%;
     transform: translate(-50%, -50%);
     width: 400px;
-    background: white;
+    background: transparent;
     padding-top: 50px;
 }
 

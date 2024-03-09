@@ -84,78 +84,7 @@
 
         <div class="item dashboard">
             <div class="item-info">
-                <!-- <div class="card--container">
-                    <h3 class="main--title">Today's data</h3>
-                    <div class="card--wrapper">
-                        <div class="payment--card light-red">
-                            <div class="card--header">
-                                <div class="amount">
-                                    <span class="title">
-                                        Payment Amount
-                                    </span>
-                                    <span class="amount-value">
-                                        $500.00
-                                    </span>
-                                </div>
-                                <i class="fas fa-dollar-sign icon dark-red"></i>
-                            </div>
-                            <span class="card-detail">
-                                **** **** **** 3484
-                            </span>
-                        </div>
-
-                        <div class="payment--card light-purple">
-                            <div class="card--header">
-                                <div class="amount">
-                                    <span class="title">
-                                        Payment Order
-                                    </span>
-                                    <span class="amount-value">
-                                        $200.00
-                                    </span>
-                                </div>
-                                <i class="fas fa-list icon dark-purple"></i>
-                            </div>
-                            <span class="card-detail">
-                                **** **** **** 5542
-                            </span>
-                        </div>
-
-                        <div class="payment--card light-green">
-                            <div class="card--header">
-                                <div class="amount">
-                                    <span class="title">
-                                        Payment Customer
-                                    </span>
-                                    <span class="amount-value">
-                                        $350.00
-                                    </span>
-                                </div>
-                                <i class="fas fa-users icon dark-green"></i>
-                            </div>
-                            <span class="card-detail">
-                                **** **** **** 8896
-                            </span>
-                        </div>
-
-                        <div class="payment--card light-blue">
-                            <div class="card--header">
-                                <div class="amount">
-                                    <span class="title">
-                                        Payment Proceed
-                                    </span>
-                                    <span class="amount-value">
-                                        $150.00
-                                    </span>
-                                </div>
-                                <i class="fas fa-list icon dark-blue"></i>
-                            </div>
-                            <span class="card-detail">
-                                **** **** **** 7745
-                            </span>
-                        </div>
-                    </div>
-                </div> -->
+                
                 <div class="tabular--wrapper">
                     <h3 class="main--title">Finance data</h3>
                     <div class="table--container">
@@ -179,27 +108,10 @@
                                     <td>$250</td>
                                     <td>Office Expenses</td>
                                     <td>Pending</td>
-                                    <td><button>Edit</button></td>
-                                </tr>
-
-                                <tr>
-                                    <td>2024-01-02</td>
-                                    <td>Income</td>
-                                    <td>Client Payment</td>
-                                    <td>$500</td>
-                                    <td>Sales</td>
-                                    <td>Completed</td>
-                                    <td><button>Edit</button></td>
-                                </tr>
-
-                                <tr>
-                                    <td>2024-01-03</td>
-                                    <td>Expenses</td>
-                                    <td>Travel Expenses</td>
-                                    <td>$250</td>
-                                    <td>Travel</td>
-                                    <td>Pending</td>
-                                    <td><button>Edit</button></td>
+                                    <td>
+                                        <button>Edit</button>
+                                        <button>Delete</button>
+                                    </td>
                                 </tr>
                             </tbody>
                             <tfoot>
@@ -223,7 +135,7 @@
                 <% } %>
                 <h2 class="header--title">Profile</h2>
                 
-                <form id="profileForm" action="/auth/dashboard#profile" method="POST">
+                <form id="profileForm" action="/auth/edit" method="POST">
 
                     <div class="form-group">
                         <label for="fullName">Full Name:</label>
@@ -277,8 +189,8 @@
                         <input type="text" id="occupation" name="occupation" value="<%= user.occupation %>" readonly>
                     </div>
                     <!-- Add more fields as needed -->
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
-                    <a href="/auth/dashboard#editProfile" class="btn btn-secondary">Edit Profile</a>
+                    <button type="button" class="btn btn-secondary" id="editProfileBtn">Edit Profile</button>
+                    <button type="submit" class="btn btn-primary" id="saveChangesBtn" style="display: none;">Save Changes</button>
                 </form>
                 
             </div>
