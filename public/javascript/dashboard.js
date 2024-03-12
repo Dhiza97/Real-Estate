@@ -1,5 +1,5 @@
 const li_elements = document.querySelectorAll('.dash-sidebar ul li')
-        const item_elements = document.querySelectorAll('.item')
+const item_elements = document.querySelectorAll('.item')
 
         for(let i = 0; i < li_elements.length; i++) {
             li_elements[i].addEventListener('click', function() {
@@ -47,59 +47,56 @@ const li_elements = document.querySelectorAll('.dash-sidebar ul li')
             });
         }
 
-        // Function to handle form submission
-        function handleSubmit(event) {
-            event.preventDefault(); // Prevent default form submission
-            
-            // Serialize form data
-            const formData = new FormData(profileForm);
-            const data = {};
-            for (let [key, value] of formData) {
-                data[key] = value;
-            }
-
-            // Send AJAX request to update profile
-            fetch('/auth/editProfile', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Handle response from server
-                if (data.success) {
-                    // Display success message
-                    // Optionally, you can redirect the user to another page or update the UI
-                    alert(data.success);
-                } else {
-                    // Display error message
-                    alert(data.error);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // Display error message
-                alert('An error occurred. Please try again.');
-            });
-        }
 
         document.addEventListener("DOMContentLoaded", function () {
+            // Get edit profile button and save changes button
             const editProfileBtn = document.getElementById('editProfileBtn');
             const saveChangesBtn = document.getElementById('saveChangesBtn');
-            const formInputs = document.querySelectorAll('#profileForm input');
-    
+            const cancelEditBtn = document.getElementById('cancelEditBtn');
+            const profileForm = document.getElementById('profileForm');
+            const profileEditForm = document.getElementById('profileEditForm');
+        
+            // Function to toggle readonly attribute of input fields
+            function toggleInputFieldsEditable(editable) {
+                const formInputs = document.querySelectorAll('#profileForm input');
+                formInputs.forEach(input => {
+                    input.readOnly = !editable;
+                });
+            }
+        
+            // Event listener for edit profile button
             editProfileBtn.addEventListener('click', function () {
-                for (const input of formInputs) {
-                    input.removeAttribute('readonly');
-                }
+                // Show edit profile form
+                profileForm.style.display = 'none';
+                profileEditForm.style.display = 'block';
+        
+                // Enable input fields for editing
+                toggleInputFieldsEditable(true);
+        
+                // Hide edit button, show save changes and cancel buttons
                 editProfileBtn.style.display = 'none';
                 saveChangesBtn.style.display = 'block';
+                cancelEditBtn.style.display = 'block';
             });
-    
+        
+            // Event listener for cancel edit button
+            cancelEditBtn.addEventListener('click', function () {
+                // Hide edit profile form
+                profileEditForm.style.display = 'none';
+                profileForm.style.display = 'block';
+        
+                // Disable input fields
+                toggleInputFieldsEditable(false);
+        
+                // Show edit button, hide save changes and cancel buttons
+                editProfileBtn.style.display = 'block';
+                saveChangesBtn.style.display = 'none';
+                cancelEditBtn.style.display = 'none';
+            });
+        
+            // Event listener for save changes button
             saveChangesBtn.addEventListener('click', function () {
-                // You can add validation logic here if needed before submitting the form
-                document.getElementById('profileForm').submit();
+                // Submit the edit profile form
+                profileEditForm.submit();
             });
         });
