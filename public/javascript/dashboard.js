@@ -88,6 +88,7 @@ const item_elements = document.querySelectorAll('.item')
                 // Disable input fields
                 toggleInputFieldsEditable(false);
         
+                
                 // Show edit button, hide save changes and cancel buttons
                 editProfileBtn.style.display = 'block';
                 saveChangesBtn.style.display = 'none';
